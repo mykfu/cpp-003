@@ -3,7 +3,7 @@
 #include <ctime>
 using namespace std;
 
-int main() {
+void lesson_03() {
 
 	// type name[];
 	// type name[10];

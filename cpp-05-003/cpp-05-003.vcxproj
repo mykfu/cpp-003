@@ -150,6 +150,13 @@
     <ClCompile Include="..\Lesson_02\Lesson_02.cpp" />
     <ClCompile Include="cpp-05-003.cpp" />
     <ClCompile Include="Lesson_03.cpp" />
+    <ClCompile Include="Lesson_04.cpp" />
+    <ClCompile Include="Lesson_05.cpp" />
+    <ClCompile Include="Lesson_06.cpp" />
+    <ClCompile Include="Source.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Lesson03.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
