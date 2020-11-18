@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cpp-05-003", "cpp-05-003\cpp-05-003.vcxproj", "{67A40FC2-6E87-4550-B8F2-9602741B607F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Game", "Game\Game.vcxproj", "{A25F960A-EE62-4451-9628-6C780E8E3D50}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{67A40FC2-6E87-4550-B8F2-9602741B607F}.Release|x64.Build.0 = Release|x64
 		{67A40FC2-6E87-4550-B8F2-9602741B607F}.Release|x86.ActiveCfg = Release|Win32
 		{67A40FC2-6E87-4550-B8F2-9602741B607F}.Release|x86.Build.0 = Release|Win32
+		{A25F960A-EE62-4451-9628-6C780E8E3D50}.Debug|x64.ActiveCfg = Debug|x64
+		{A25F960A-EE62-4451-9628-6C780E8E3D50}.Debug|x64.Build.0 = Debug|x64
+		{A25F960A-EE62-4451-9628-6C780E8E3D50}.Debug|x86.ActiveCfg = Debug|Win32
+		{A25F960A-EE62-4451-9628-6C780E8E3D50}.Debug|x86.Build.0 = Debug|Win32
+		{A25F960A-EE62-4451-9628-6C780E8E3D50}.Release|x64.ActiveCfg = Release|x64
+		{A25F960A-EE62-4451-9628-6C780E8E3D50}.Release|x64.Build.0 = Release|x64
+		{A25F960A-EE62-4451-9628-6C780E8E3D50}.Release|x86.ActiveCfg = Release|Win32
+		{A25F960A-EE62-4451-9628-6C780E8E3D50}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
