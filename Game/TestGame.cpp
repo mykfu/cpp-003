@@ -5,7 +5,7 @@
 #include <string>
 
 using namespace std;
-#define TEST
+//#define TEST
 
 
 ////1; 0, 2, 1
@@ -187,6 +187,8 @@ void printArray(int* arr) {
             << (i != length - 1 ? ", " : "]\n");
     }
 }
+
+
 
 #ifdef TEST
 int main()

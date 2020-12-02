@@ -2,17 +2,80 @@
 //
 
 #include <iostream>
+#include <fstream>
 
 using namespace std;
-#define TEST
+//#define TEST
+
+string* dict;
+int dict_length = 0;
+
+void readDictionary(const char* filename) {
+    ifstream file(filename);
+    if (file.is_open()) {
+        char* line = new char[7];
+        while (file.getline(line, 6)) {
+            dict_length++;
+        }
+        dict = new string[dict_length];
+        file.clear();
+        file.seekg(0);
+
+        for (int i = 0; i < dict_length; i++)
+        {
+            file.getline(line, 6);
+            dict[i] = line;
+        }
+
+        file.close();
+    }
+}
+
+bool binarySearch(string findMe, string* sortedArr, int length);
+
+// штук - стук - сток - стон - слон
+// стук - стул - стол - стон - слон
+void game(const string& begin, const string& end) {
+    if (begin.length() != end.length()) {
+        cerr << "Размер слов не совпадает!" << endl;
+        exit(EXIT_FAILURE);
+    }
+    string abc = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
+
+    string* words;
+
+    for (int i = 0; i < begin.length(); i++)
+    {
+        string current = begin;
+        if (current[i] != end[i]) {
+            for (int j = 0; j < abc.length(); j++)
+            {
+                current[i] = abc[j];
+                //cout << current << endl;
+                if (binarySearch(current, dict, dict_length)) {
+                    cout << current << endl;
 
 
+                }
+            }
+        }
+
+
+    }
+
+
+
+}
 
 #ifndef TEST
 
 int main()
 {
-    cout << "Hello World!\n";
+    setlocale(LC_ALL, "russian");
+    readDictionary("dict_len4_ansi.txt");
+    game("стук", "слон");
+
+    return EXIT_SUCCESS;
 }
 
 #endif
