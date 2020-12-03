@@ -30,8 +30,9 @@ void printArray(int* arr) {
 	for (int i = 0; i < length; i++)
 	{
 		cout << arr[i]
-			<< (i != length - 1 ? ", " : "]\n");
+			<< (i != length - 1 ? ", " : "");
 	}
+	cout << "]\n";
 }
 
 void removeElementAt(int*& arr, int k) {
