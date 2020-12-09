@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <fstream>
+#include <queue>
+#include <stack>
 
 using namespace std;
 //#define TEST
@@ -135,13 +137,73 @@ void game(const string& begin, const string& end) {
     game(begin, end, chain, chain_length);
 }
 
+struct Pair {
+    string parent;
+    string child;
+};
+
+void print(stack<string> stack) {
+    cout << "Stack@[";
+    while (!stack.empty()) {
+        string cur = stack.top();
+        stack.pop();
+        cout << " " << cur;
+    }
+    cout << "]\n";
+}
+
+void gameBFS(const string& begin, const string& end) {
+    queue<string> queue;
+    vector<Pair> result;
+    queue.push(begin);
+
+    while (!queue.empty()) {
+        string current = queue.front();
+
+        if (current == end) {
+            cout << end << endl;
+            cout << "Цепочка найдена!\n";
+            found = true;
+            stack<string> stk;
+            string cur = end;
+            stk.push(cur);
+            for (int i = 0; cur != begin; i++)
+            {
+                if (result.at(i).child == cur) {
+                    cur = result.at(i).parent;
+                    stk.push(cur);
+                    i = 0;
+                }
+            }
+            print(stk);
+            cout << "Размер цепочки = " << stk.size() << endl;
+
+            return;
+        }
+
+        queue.pop();
+        cout << current << ": ";
+        int result_length = 0;
+        string* words = getWords(current, end, result_length);
+        print(words, result_length);
+        for (int i = 0; i < result_length; i++)
+        {
+            queue.push(words[i]);
+            Pair p = { current, words[i] };
+            result.push_back(p);
+        }
+    }
+
+}
+
 #ifndef TEST
 
 int main()
 {
     setlocale(LC_ALL, "russian");
     readDictionary("dict_len4_ansi.txt");
-    game("стук", "слон");
+    game("муха", "слон");
+    //gameBFS("муха", "слон");
 
     return EXIT_SUCCESS;
 }

@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include <string>
+#include <queue>
+#include <vector>
+#include <stack>
 
 using namespace std;
 //#define TEST
@@ -188,12 +191,8 @@ void printArray(int* arr) {
     }
 }
 
+void test_sort() {
 
-
-#ifdef TEST
-int main()
-{
-    setlocale(LC_ALL, "ru_RU");
     int length = 30;
     int* arr = new int[length];
 
@@ -233,12 +232,93 @@ int main()
 
     cout << "binarySearch in string " << (binarySearch(string("fd"), strs, 4) ? "true" : "false") << endl;
     cout << "binarySearch in string " << (binarySearch(string("df"), strs, 4) ? "true" : "false") << endl;
-    
+
 
     string* strs2 = new string[]{ "åå", "å¸", "¸æèê", "ñôûû" };
     cout << "binarySearch in string " << (binarySearch(string("åå"), strs2, 4) ? "true" : "false") << endl;
     cout << "binarySearch in string " << (binarySearch(string("¸æèê"), strs2, 4) ? "true" : "false") << endl;
 
+}
+
+void print(queue<int> queue) {
+    cout << "Queue@[";
+    while (!queue.empty()) {
+        int cur = queue.front();
+        queue.pop();
+        cout << " " << cur;
+    }
+    cout << "]\n";
+}
+
+void print(stack<int> stack) {
+    cout << "Stack@[";
+    while (!stack.empty()) {
+        int cur = stack.top();
+        stack.pop();
+        cout << " " << cur;
+    }
+    cout << "]\n";
+}
+
+void reverse(queue<int>& queue) {
+    stack<int> stack;
+    while (!queue.empty()) {
+        stack.push(queue.front());
+        queue.pop();
+    }
+
+    while (!stack.empty()) {
+        queue.push(stack.top());
+        stack.pop();
+    }
+}
+
+#ifdef TEST
+int main()
+{
+    setlocale(LC_ALL, "ru_RU");
+    //test_sort();
+    cout << endl;
+    cout << endl;
+
+    cout << "vector:\n";
+
+    vector<int> v1;
+
+    for (int i = 1; i <= 10; i++)
+    {
+        v1.push_back(i * 10);
+    }
+
+    for (auto n : v1) {
+        cout << " " << n;
+    }
+
+    for (int i = 0; i < v1.size(); i++)
+    {
+        cout << " " << v1[i] << " " << v1.at(i);
+    }
+    cout << endl;
+    
+    queue<int> qu1; // FIFO 
+
+    for (int i = 1; i <= 10; i++)
+    {
+        qu1.push(i * 10);
+    }
+
+    print(qu1);
+    reverse(qu1);
+    print(qu1);
+
+    stack<int> stack; // LIFO
+
+    for (int i = 1; i <= 10; i++)
+    {
+        stack.push(i * 10);
+    }
+
+    print(stack);
 
 
 
